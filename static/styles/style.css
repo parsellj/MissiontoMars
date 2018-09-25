@@ -1,0 +1,58 @@
+.mission{
+	color: black;
+	font-weight: bold;
+}
+
+.container1 {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: lightgray;
+}
+
+h1{
+	font-size: 50px;
+}
+
+.featured {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.container3 {
+	padding-right: 10px;
+}
+.container4 {
+	border: 1px solid lightgray;
+	border-radius: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 18px;
+}
+h4 {
+	font-size: 18px;
+}
+p {
+	font-size: 14px;
+}
+
+body{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.image-container {
+	padding-left: 2px;
+	border-color: lightgray;
+	border-width: 1px;
+	border-style: solid;
+	padding-right: 2px;
+	padding-top: 2px;
+}

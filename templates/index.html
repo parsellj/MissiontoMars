@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <h1 align="center"><a href="/" class="mission">Mission to Mars</a></h1>
+            <h1 align="center"><a href="/scrape" class="btn btn-primary" role="button" align="center">Scrape New Data</a></h1>
+        </div>
+    </header>
+
+    <!-- Latest Mars News -->
+    <div class="container" style="width:100%">
+        <div class="row">
+            <div class="col-md-12">
+                <h2><strong>Latest Mars News</strong></h2>
+                <h3><strong>{{ mars_info.news_title }}</strong></h3>
+                <p>{{ mars_info.news_para }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Mars Image / Current Weather on Mars / Mars Facts -->
+    <div class="container3">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="panel">
+                <div class="panel-body">
+                    <h2><strong>Featured Mars Image</strong></h2>
+                    <img src=  {{ mars_info.main_image_url }} alt="" class="featured" >
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4><strong>Current Weather on Mars</strong></h4>
+                </div>
+                    <table class="table">
+                    <thead>
+                    <tr>
+                    <td><small>{{ mars_info.weather }}</small></td>
+                    </tr>
+                    </thead>
+                </table>
+                    </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Mars Fact</strong></h3>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-md-3"><small><strong>Description</strong></small></th>
+                        <th class="col-md-3"><small><strong>Facts</strong></small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[0].column_description }}</small></td>
+                        <td><small>{{mars_info.mars_facts[0].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[1].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[1].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[2].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[2].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[3].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[3].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[4].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[4].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[5].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[5].column_fact}}</small></td>
+                    </tr>
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[6].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[6].column_fact}}</small></td>
+                    </tr>  
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[7].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[7].column_fact}}</small></td>
+                    </tr> 
+                    <tr>
+                        <td><small>{{ mars_info.mars_descriptions[8].column_description}}</small></td>
+                        <td><small>{{mars_info.mars_facts[8].column_fact}}</small></td>
+                    </tr> 
+                </tbody>
+            </table>
+            </div>
+            </div>
+        </div>
+
+    <!-- Mars Hemispheres -->
+    <h2 class="hemispheres" align = "center" style="padding-left: 15px"><strong>Mars Hemispheres</strong></h2>
+    <div class="row" style="padding-bottom:20px">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 border">
+            <div class="image-container">
+            <img src={{ mars_info.links[0]["url"]}} alt="" style="width:100%">
+            <p class="caption" style="padding-top: 5px"><strong>{{ mars_info.links[0]["title"] }}</strong></p>
+            </div>
+        </div>
+        <div class="col-sm-5 border" >
+            <div class="image-container">
+            <img src={{ mars_info.links[1]["url"] }} alt="" style="width:100%">
+            <p class="caption" style="padding-top: 5px"><strong>{{ mars_info.links[1]["title"] }}</strong></p>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 border" >
+            <div class="image-container">
+            <img src={{ mars_info.links[2]["url"] }} alt="" style="width:100%">
+            <p class="caption" style="padding-top: 5px"><strong>{{ mars_info.links[2]["title"] }}</strong></p>
+            </div>
+        </div>
+        <div class="col-sm-5 border" >
+            <div class="image-container">
+            <img src={{ mars_info.links[3]["url"] }} alt="" style="width:100%">
+            <p class="caption" style="padding-top: 5px"><strong>{{ mars_info.links[3]["title"] }}</strong></p>
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+</body>
+</html>
